@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/background_gradient">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/brandTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VIP HOTELS"
+                android:textColor="#db79eb"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/welcomeMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome To Brevistay"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                android:layout_marginTop="27dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/skipLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="skip"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:layout_gravity="end"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your Email"
+        android:textSize="25sp"
+        android:background="@drawable/edit_text_bg"
+        android:padding="17dp"
+        android:layout_marginTop="144dp"
+        android:textColor="#484c4f"
+        android:layout_marginBottom="45dp" />
+
+    <!-- Password Input -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:padding="17dp"
+        android:background="@drawable/edit_text_bg"
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/passwordInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter Password"
+            android:textSize="25sp"
+            android:textColor="#484c4f"
+            android:background="@android:color/transparent" />
+
+        <ImageView
+            android:id="@+id/visibilityIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_visibility"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+    <!-- Continue Button -->
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="continue"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:backgroundTint="#26e515"
+        android:layout_gravity="center"
+        android:layout_marginTop="44dp"
+        android:padding="1dp" />
+
+    <!-- Password Option Link -->
+    <TextView
+        android:id="@+id/passwordOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Use password instead?"
+        android:textColor="#db79eb"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="19dp" />
+</LinearLayout>

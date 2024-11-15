@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF" />  <!-- Fond blanc à l'intérieur -->
+    <stroke android:color="#000000" android:width="2dp" />  <!-- Bordure noire de 2dp -->
+    <corners android:radius="4dp" />  <!-- Coins arrondis de 4dp -->
+</shape>

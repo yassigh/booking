@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_gradient"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textVIPHotels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VIP Hotels"
+        android:textSize="22sp"
+        android:textColor="#FD3F80"
+        android:textAlignment="center"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold" />
+<ImageView
+android:id="@+id/imageView"
+android:layout_width="match_parent"
+android:layout_height="0dp"
+android:layout_weight="0.4"
+    android:contentDescription="Image Description"
+    android:src="@drawable/a"
+    android:scaleType="centerCrop"
+    android:layout_marginBottom="24dp"/>
+    <TextView
+android:id="@+id/textView"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Hotels Across Tunisia\nWe provide booking across all major cities in Tunisia"
+android:textSize="25sp"
+        android:textColor="#000000"
+    android:textAlignment="center"
+    android:layout_marginBottom="24dp"
+    android:lineSpacingExtra="8dp"
+        android:textStyle="bold"/>
+
+
+<Button
+android:id="@+id/button_get_started"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Get Started"
+android:textSize="25sp"
+    android:layout_gravity="center"
+    android:backgroundTint="#FF4081"
+    android:textColor="#FFFFFF"
+    android:layout_marginTop="16dp" />
+
+    </LinearLayout>

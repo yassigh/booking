@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#92D3F5"/> <!-- Couleur de fond du bouton -->
+    <corners android:radius="16dp"/> <!-- Coins arrondis -->
+    <stroke android:color="#6BA9D6" android:width="2dp"/> <!-- Bordure -->
+</shape>
