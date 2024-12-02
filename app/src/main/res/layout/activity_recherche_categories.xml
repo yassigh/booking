@@ -1,15 +1,13 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".recherche_categories"
+    android:id="@+id/main">
 
-    <!-- Conteneur principal de l'interface -->
-
-
-        <!-- Titre et texte de bienvenue -->
-        <TextView
+   <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="VIP HOTELS"
@@ -42,7 +40,7 @@
             android:layout_height="36dp"
             android:src="@drawable/ic_search" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/hotel_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -60,7 +58,7 @@
         android:orientation="vertical"
         android:layout_marginTop="16dp"
         android:padding="6dp"
-
+android:id="@+id/l1"
         android:background="@drawable/border">
 
         <ImageView
@@ -71,6 +69,7 @@
         android:scaleType="centerCrop"
             android:layout_marginBottom="10dp"/>
         <TextView
+            android:id="@+id/hotel_found"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="HOURLE STAY"
@@ -80,6 +79,7 @@
 
         <!-- Texte Hammamet -->
         <TextView
+            android:id="@+id/m"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hotel Méditerrannée "
@@ -120,7 +120,7 @@
         android:orientation="vertical"
         android:layout_marginTop="16dp"
         android:padding="6dp"
-
+android:id="@+id/l2"
         android:background="@drawable/border">
 
         <ImageView
@@ -131,6 +131,7 @@
             android:scaleType="centerCrop"
             android:layout_marginBottom="10dp"/>
         <TextView
+            android:id="@+id/vip_hotels"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="HOURLE STAY"
@@ -140,6 +141,7 @@
 
         <!-- Texte Hammamet -->
         <TextView
+            android:id="@+id/b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hotel Bel Azur "

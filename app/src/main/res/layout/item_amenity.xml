@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/phone_icon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/telephone"
+        android:contentDescription="Phone"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onPhoneClick" />
+
+    <TextView
+        android:id="@+id/amenity_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Amenity Name"
+        android:textSize="16sp" />
+</LinearLayout>

@@ -1,24 +1,87 @@
 package com.example.myhotel;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class login extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private EditText emailEditText, passwordEditText;
+    private Button continueButton;
+    private ImageView visibilityIcon;
+    private boolean isPasswordVisible = false;
+    private TextView skip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        mAuth = FirebaseAuth.getInstance();
+
+        emailEditText = findViewById(R.id.email);
+        passwordEditText = findViewById(R.id.password);
+        continueButton = findViewById(R.id.continueButton);
+        visibilityIcon = findViewById(R.id.visibilityIcon);
+        skip = findViewById(R.id.skipLink);
+        skip.setOnClickListener(view -> {
+            // Navigate to the login activity
+            Intent intent = new Intent(login.this, registre.class);
+            startActivity(intent);
+            finish();
         });
+        // Listener pour le bouton continue
+        continueButton.setOnClickListener(view -> {
+            String email = emailEditText.getText().toString().trim();
+            String password = passwordEditText.getText().toString().trim();
+
+            if (TextUtils.isEmpty(email)) {
+                emailEditText.setError("Email is required");
+                return;
+            }
+
+            if (TextUtils.isEmpty(password)) {
+                passwordEditText.setError("Password is required");
+                return;
+            }
+
+            loginUser(email, password);
+        });
+
+        // Gestion de la visibilité du mot de passe
+        visibilityIcon.setOnClickListener(view -> {
+            isPasswordVisible = !isPasswordVisible;
+            passwordEditText.setInputType(isPasswordVisible
+                    ? android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                    : android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            passwordEditText.setSelection(passwordEditText.getText().length());
+        });
+    }
+
+    private void loginUser(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        Toast.makeText(login.this, "Login successful! Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(login.this, home.class));
+                        finish(); // Empêcher de revenir à la page de login
+                    } else {
+                        String errorMessage = task.getException() != null ? task.getException().getMessage() : "Unknown error";
+                        Toast.makeText(login.this, "Login failed: " + errorMessage, Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 }

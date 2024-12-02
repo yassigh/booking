@@ -1,36 +1,40 @@
 package com.example.myhotel;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.google.firebase.FirebaseApp;
+import android.content.Intent;
+public class home extends AppCompatActivity {
+    private LinearLayout l11, l12;
 
-public class MainActivity extends AppCompatActivity {
-private Button getStartedButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Initialiser Firebase
-        FirebaseApp.initializeApp(this);
-
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
+        // Gérer les bords pour une expérience fluide
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-        });  getStartedButton = findViewById(R.id.button_get_started);
-        getStartedButton.setOnClickListener(view -> {
-            // Lancer l'activité registre
-            Intent intent = new Intent(MainActivity.this, registre.class);
+        });
+
+
+        l11 = findViewById(R.id.l11);
+        l12 = findViewById(R.id.l12);  l11.setOnClickListener(v -> {
+            Intent intent = new Intent(home.this, recherche_categories.class);
+            startActivity(intent);
+        });
+
+        // Ajouter un gestionnaire de clic pour l12 si nécessaire
+        l12.setOnClickListener(v -> {
+            Intent intent = new Intent(home.this, recherche_categories.class);
             startActivity(intent);
         });
     }

@@ -2,9 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    tools:context=".registre"
+    android:id="@+id/main2">
 
     <!-- Titre d'enregistrement -->
     <TextView

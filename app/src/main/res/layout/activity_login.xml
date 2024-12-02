@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/background_gradient">
+    tools:context=".login"
+    android:id="@+id/main">
 
     <!-- Header Section -->
     <LinearLayout
@@ -51,14 +53,13 @@
 
     <!-- Email Input -->
     <EditText
-        android:id="@+id/emailInput"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your Email"
         android:textSize="25sp"
         android:background="@drawable/edit_text_bg"
         android:padding="17dp"
-        android:layout_marginTop="144dp"
         android:textColor="#484c4f"
         android:layout_marginBottom="45dp" />
 
@@ -67,22 +68,25 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
         android:padding="17dp"
         android:background="@drawable/edit_text_bg"
         android:layout_gravity="center">
 
         <EditText
-            android:id="@+id/passwordInput"
+            android:id="@+id/password"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:hint="Enter Password"
-            android:textSize="25sp"
-            android:textColor="#484c4f"
-            android:background="@android:color/transparent" />
+        android:hint="Enter Password"
+        android:textSize="18sp"
+        android:textColor="#484c4f"
+        android:background="@android:color/transparent"
+        android:inputType="textPassword"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp" /> <!-- Ajoute du padding interne -->
 
-        <ImageView
+
+    <ImageView
             android:id="@+id/visibilityIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -100,8 +104,7 @@
         android:textSize="16sp"
         android:backgroundTint="#26e515"
         android:layout_gravity="center"
-        android:layout_marginTop="44dp"
-        android:padding="1dp" />
+        android:layout_marginTop="44dp" />
 
     <!-- Password Option Link -->
     <TextView

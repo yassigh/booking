@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,17 +20,26 @@
         android:theme="@style/Theme.MyHotel"
         tools:targetApi="31">
         <activity
-            android:name=".detail"
+            android:name=".Profile"
             android:exported="false" />
+        <activity
+            android:name=".menu"
+            android:exported="false" /> <!-- Activity declarations -->
+        <activity
+            android:name=".detail"
+            android:exported="true" />
         <activity
             android:name=".recherche_categories"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".login"
-            android:exported="false" />
+            android:exported="true" />
+        <activity
+            android:name=".home"
+            android:exported="true" />
         <activity
             android:name=".registre"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
