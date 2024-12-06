@@ -93,6 +93,13 @@
             android:src="@drawable/ic_visibility"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/error"
+        android:text=""
+        android:textColor="#FF0000"
+        android:textSize="20sp"/>
 
     <!-- Continue Button -->
     <Button

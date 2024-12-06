@@ -17,7 +17,7 @@ private Button getStartedButton;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Initialiser Firebase
+
         FirebaseApp.initializeApp(this);
 
         EdgeToEdge.enable(this);
@@ -29,7 +29,7 @@ private Button getStartedButton;
             return insets;
         });  getStartedButton = findViewById(R.id.button_get_started);
         getStartedButton.setOnClickListener(view -> {
-            // Lancer l'activité registre
+
             Intent intent = new Intent(MainActivity.this, registre.class);
             startActivity(intent);
         });

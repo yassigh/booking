@@ -1,5 +1,6 @@
 package com.example.myhotel;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -22,49 +22,50 @@ public class login extends AppCompatActivity {
     private Button continueButton;
     private ImageView visibilityIcon;
     private boolean isPasswordVisible = false;
-    private TextView skip;
+    private TextView skip,Error;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         mAuth = FirebaseAuth.getInstance();
+        Error=findViewById(R.id.error);
 
         emailEditText = findViewById(R.id.email);
         passwordEditText = findViewById(R.id.password);
         continueButton = findViewById(R.id.continueButton);
         visibilityIcon = findViewById(R.id.visibilityIcon);
         skip = findViewById(R.id.skipLink);
+
         skip.setOnClickListener(view -> {
-            // Navigate to the login activity
             Intent intent = new Intent(login.this, registre.class);
             startActivity(intent);
             finish();
         });
-        // Listener pour le bouton continue
+
+        // Listener pour le bouton continueee
         continueButton.setOnClickListener(view -> {
             String email = emailEditText.getText().toString().trim();
             String password = passwordEditText.getText().toString().trim();
 
             if (TextUtils.isEmpty(email)) {
-                emailEditText.setError("Email is required");
+                Error.setText("Email is required");
                 return;
             }
 
             if (TextUtils.isEmpty(password)) {
-                passwordEditText.setError("Password is required");
+                Error.setText("Password is required");
                 return;
             }
 
             loginUser(email, password);
         });
 
-        // Gestion de la visibilité du mot de passe
+        // visibilite du mot de passe
         visibilityIcon.setOnClickListener(view -> {
             isPasswordVisible = !isPasswordVisible;
-            passwordEditText.setInputType(isPasswordVisible
-                    ? android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            passwordEditText.setInputType(isPasswordVisible ? android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
                     : android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD);
             passwordEditText.setSelection(passwordEditText.getText().length());
         });
@@ -77,7 +78,7 @@ public class login extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         Toast.makeText(login.this, "Login successful! Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(login.this, home.class));
-                        finish(); // Empêcher de revenir à la page de login
+                        finish();
                     } else {
                         String errorMessage = task.getException() != null ? task.getException().getMessage() : "Unknown error";
                         Toast.makeText(login.this, "Login failed: " + errorMessage, Toast.LENGTH_LONG).show();
